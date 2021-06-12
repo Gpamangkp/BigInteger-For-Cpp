@@ -150,6 +150,29 @@ bigint bigint::operator*(const bigint &num){
 	return res;
 }
 
+bigint bigint::operator*(const long long &nm){
+	bigint res;
+	bigint num=nm;
+	for(int i=0;i<num.sz;i++){
+		int dg=num.digits[i];
+		int carry=0;
+		for(int j=0;j<sz;j++){
+			int prd=dg*digits[j];
+			res.digits[j+i]+=(prd+carry)%10;
+			carry=(prd+carry)/10;
+			carry+=res.digits[i+j]/10;
+			res.digits[i+j]%=10;
+			res.sz=max(res.sz,i+j+1);
+		}
+		for(int j=sz;j<1001 && carry;j++){
+			res.digits[i+j]+=carry%10;
+			carry/=10;
+			res.sz=max(res.sz,i+j+1);
+		}
+	}
+	return res;
+}
+
 bigint bigint::operator%(bigint &nm){
 	try{
 		long long mod=nm;
@@ -234,7 +257,7 @@ std::string to_string(const bigint &num){
 }
 
 bigint::operator long long(){
-	assert(sz<10);
+	assert(sz<=18);
 	long long res=0;
 	for(int i=sz;i>=0;i--){
 		res=res*10+digits[i];
