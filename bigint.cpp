@@ -93,6 +93,22 @@ bigint& bigint::operator=(const bigint &num){
 	return *this;
 }
 
+bigint& bigint::operator=(const long long &num){
+	long long tm=num;
+	int sze=0;
+	while(tm>0){
+		sze++;tm/=10;
+	}
+	sz=max(sz,sze);
+	tm=num;
+	digits.assign(1001,0);
+	for(int i=0;i<sz;i++){
+		digits[i]=tm%10;
+		tm/=10;
+	}
+	return *this;
+}
+
 
 bigint bigint::operator+(const bigint &num){
 	bigint res;
