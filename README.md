@@ -22,4 +22,8 @@ Scope for improvement :
 2. Use of Karatsuba Algorithm to modify the time Complexity of Multiplication.
 3. Memory can also be improved by storing digits as characters instead of array.
 
+The repository also contains a program with certain applications of big integers like finding factorial of number, sorting big integers , etc.
+![image](https://user-images.githubusercontent.com/41160734/121773359-15234580-cb99-11eb-8cda-bce1d5c16a20.png)
+We can see the factorial of 246 to be accurate
+
 Feel free to contribute to this :)
