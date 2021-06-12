@@ -19,6 +19,7 @@ public:
 	bigint operator+(const bigint &num);
 	// bigint operator-(const bigint &num);
 	bigint operator*(const bigint &num);
+	bigint operator*(const long long &num);
 	// bigint operator/(const bigint &num);
 	bigint operator%(bigint &nm);
 
@@ -32,7 +33,7 @@ public:
 
 	// assignment operator
 	bigint& operator=(const bigint &num);
-
+	bigint& operator=(const long long &num);
 	// ostream << operator
 	friend std::ostream& operator<<(std::ostream &out, const bigint &num);
 	// istream >> operator
